@@ -14,9 +14,9 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v3
         with:
-          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: ${{ vars.AWS_KEY_ID }}
+          aws-secret-access-key: ${{ secret.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-south-1
       - name: Sync files to S3
         run: |
-          aws s3 sync . s3://${{ secrets.AWS_BUCKET }} --exclude ".git/*" --exclude ".github/*" --delete
+          aws s3 sync . s3://${{ vars.AWS_BUCKET }} --exclude ".git/*" --exclude ".github/*" --delete
