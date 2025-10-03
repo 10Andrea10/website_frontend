@@ -15,7 +15,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v3
         with:
           aws-access-key-id: ${{ vars.AWS_KEY_ID }}
-          aws-secret-access-key: ${{ secret.AWS_SECRET_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-south-1
       - name: Sync files to S3
         run: |
